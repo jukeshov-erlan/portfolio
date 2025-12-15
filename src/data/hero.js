@@ -1,5 +1,5 @@
 export const heroData = {
-  greeting: "Hello, I'm",
+  greeting: "👋 Hello, I'm",
   name: "Erlan Jukeshovich",
   roles: ["Frontend Developer", "React Specialist", "Creative Coder"],
   description:

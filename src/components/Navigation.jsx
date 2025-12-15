@@ -17,8 +17,9 @@ export const Navigation = () => {
     const element = document.querySelector(href);
     if (element) {
       const navHeight = 60;
-      const elementPosition = element.offsetTop - navHeight;
+      const elementPosition = element.offsetTop - navHeight; //расстояние от нашего элемента до самого верхнего
       window.scrollTo({
+        //автопрокрутка
         top: elementPosition,
         behavior: "smooth",
       });
@@ -28,7 +29,7 @@ export const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 50); //текущее положение скролла в px от вверха при этом относительно страницы
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -47,12 +48,10 @@ export const Navigation = () => {
         isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}
     >
+      {/*centered container*/}
       <div className="max-w-6xl mx-auto px-6 py-4">
-        {" "}
-        {/*centered container*/}
+        {/*flex container*/}
         <div className="flex justify-between items-center">
-          {" "}
-          {/*flex container*/}
           <div
             className={`text-xl font-bold transition-colors cursor-pointer hover:opacity-80 ${
               isScrolled ? "text-black" : "text-black"
@@ -72,10 +71,8 @@ export const Navigation = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className={`transition-colors ${
-                  isScrolled
-                    ? "text-gray-600 hover:text-black"
-                    : "text-gray-700 hover:text-black"
+                className={`transition-colors hover:text-black ${
+                  isScrolled ? "text-gray-600" : "text-gray-700"
                 }`}
                 onClick={(e) => {
                   e.preventDefault();
@@ -89,10 +86,8 @@ export const Navigation = () => {
           {/*Mobile Menu*/}
           <button
             onClick={toggleMobileMenu}
-            className={`md:hidden p-2 transition-colors cursor-pointer ${
-              isScrolled
-                ? "text-gray-600 hover:text-black"
-                : "text-gray-700 hover:text-black"
+            className={`md:hidden p-2 transition-colors cursor-pointer hover:text-black ${
+              isScrolled ? "text-gray-600" : "text-gray-700"
             }`}
           >
             {isMobileMenuOpen ? (
