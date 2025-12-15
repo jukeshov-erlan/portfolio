@@ -53,7 +53,7 @@ const About = ({ hasAnimated }) => {
                 specialize in React, TypeScript, and modern CSS frameworks to
                 build scalable and high-performance applications.
               </p>
-              <div className="flex scroll-px-4">
+              <div className="flex justify-around scroll-px-4">
                 <Github className="w-6 h-6 text-gray-600 hover:text-black cursor-pointer transition-colors"/>
                 <Linkedin className="w-6 h-6 text-gray-600 hover:text-black cursor-pointer transition-colors"/>
                 <Mail className="w-6 h-6 text-gray-600 hover:text-black cursor-pointer transition-colors"/>
