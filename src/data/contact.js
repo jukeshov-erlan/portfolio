@@ -1,4 +1,4 @@
-export const contactLink = [
+export const contactLinks = [
   {
     href: "mailto:jukeshov-erlan@gmail.com",
     label: "Email Me",

@@ -44,9 +44,13 @@ const Hero = ({ hasAnimated }) => {
         return () => clearTimeout(timeout);
       } else {
         //Move to next word
-        setIsDeleting(false);
-        setCurrentTextIndex((prev) => (prev + 1) % roles.length);
-        setTypingSpeed(150);
+        const timeout = setTimeout(() => {
+          setIsDeleting(false);
+          setCurrentTextIndex((prev) => (prev + 1) % roles.length);
+          setTypingSpeed(150);
+        }, 300);
+
+        return () => clearTimeout(timeout);
       }
     }
   }, [currentText, currentTextIndex, typingSpeed, roles, isDeleting]);
@@ -163,7 +167,7 @@ const Hero = ({ hasAnimated }) => {
               className="group flex flex-col items-center text-gray-600 hover:text-black transition-colors cursor-pointer"
             >
               <span className="text-sm mb-2">Learn More</span>
-              <ArrowDown className="w-6  h-6 group-hover:transform group-hover:translate-y-1 transition-transform"/>
+              <ArrowDown className="w-6  h-6 group-hover:transform group-hover:translate-y-1 transition-transform" />
             </button>
           </div>
         </div>
@@ -173,7 +177,6 @@ const Hero = ({ hasAnimated }) => {
       <div className="absolute top-25 right-15 w-6 h-6 bg-purple-400 rounded-full opacity-60 animate-float delay-1000"></div>
       <div className="absolute bottom-40 left-20 w-3 h-3 bg-green-400 rounded-full opacity-60 animate-float delay-2000"></div>
       <div className="absolute bottom-30 right-10 w-5 h-5 bg-orange-400 rounded-full opacity-60 animate-float delay-3000"></div>
-
     </section>
   );
 };
